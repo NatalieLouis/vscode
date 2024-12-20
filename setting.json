@@ -1,0 +1,277 @@
+{
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorSurroundingLines": 5,
+    "editor.fontFamily": "CaskaydiaCove Nerd Font",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 18,
+    "editor.fontWeight": "300",
+    "editor.formatOnSave": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.lineNumbers": "relative",
+    "editor.linkedEditing": true,
+    "editor.minimap.enabled": false,
+    "editor.smoothScrolling": true,
+    "editor.stickyScroll.enabled": true,
+    "editor.suggest.insertMode": "replace",
+    "editor.suggestFontSize": 14,
+    "editor.wordWrap": "on",
+    "errorLens.fontStyleItalic": true,
+    "everforest.italicKeywords": true,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "extensions.autoUpdate": "onlyEnabledExtensions",
+    "extensions.ignoreRecommendations": false,
+    "files.exclude": {
+        "**/node_modules": true
+    },
+    "projectManager.git.baseFolders": [
+        "$home/codetree/repo/"
+    ],
+    "projectManager.sortList": "Recent",
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "update.showReleaseNotes": false,
+    "vim.foldfix": true,
+    "vim.highlightedyank.color": "rgba(230, 97, 89, 0.7)",
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.textColor": "white",
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "leader",
+                "r"
+            ],
+            "commands": [
+                "editor.action.rename"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "w"
+            ],
+            "commands": [
+                ":w!"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "q"
+            ],
+            "commands": [
+                ":q!"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "x"
+            ],
+            "commands": [
+                ":x!"
+            ]
+        },
+        {
+            "after": [
+                "g",
+                "g",
+                "V",
+                "G"
+            ],
+            "before": [
+                "<c-a>"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "k"
+            ],
+            "commands": [
+                "editor.action.showHover"
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "d"
+            ],
+            "commands": [
+                "editor.action.marker.prev"
+            ]
+        },
+        {
+            "before": [
+                "]",
+                "d"
+            ],
+            "commands": [
+                "editor.action.marker.next"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "c",
+                "a"
+            ],
+            "commands": [
+                "editor.action.quickFix"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "i"
+            ],
+            "commands": [
+                "extension.toggleBool"
+            ]
+        },
+        // 格式化代码
+        {
+            "before": [
+                "leader",
+                "f",
+                "t"
+            ],
+            "commands": [
+                {
+                    "command": "editor.action.formatDocument"
+                }
+            ]
+        },
+        // 只有在当前文件是在左边的 explorer 中时才有效
+        {
+            "before": [
+                "leader",
+                "f"
+            ],
+            "commands": [
+                {
+                    "command": "revealInExplorer"
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "h"
+            ],
+            "commands": [
+                ":noh"
+            ]
+        },
+        // {
+        //     "before": [
+        //         "leader",
+        //         "c"
+        //     ],
+        //     "commands": [
+        //         {
+        //             "command": "workbench.action.closeEditorInAllGroups"
+        //         }
+        //     ]
+        // },
+        {
+            "before": [
+                "leader",
+                "c",
+            ],
+            "commands": [
+                {
+                    "command": "workbench.action.closeActiveEditor"
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "g",
+                "g"
+            ],
+            "commands": [
+                {
+                    "command": "workbench.action.quickOpen"
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "g",
+                "f"
+            ],
+            "commands": [
+                {
+                    "command": "workbench.view.search"
+                }
+            ]
+        },
+    ],
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "window.zoomLevel": 1,
+    "workbench.colorTheme": "Everforest Dark",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.settings.editor": "json",
+    "zenMode.hideLineNumbers": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "vim.useSystemClipboard": true,
+    // 开启 vim-surround
+    "vim.surround": true,
+    "workbench.startupEditor": "none",
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    // 光标的动画效果
+    "editor.cursorBlinking": "solid",
+    "editor.cursorStyle": "line",
+    // 自动检测缩进的宽度
+    "editor.detectItdentation": false,
+    // 标题栏的一些快捷图标
+    "workbench.layoutControl.enabled": false,
+    // 只背景高亮当前行，但是不高亮行号
+    "editor.renderLineHighlight": "line",
+    // 高亮当前光标所在的单词以及同名的单词
+    "editor.occurrencesHighlight": "singleFile",
+    // 高亮选中内容
+    "editor.selectionHighlight": false,
+    // vim settings
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useCtrlKeys": true,
+    //确保 Ctrl+C 的行为不被 Vim 模式干扰
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false,
+        "<C-p>": false,
+        "<C-w>": false,
+        "<C-c>": false,
+        "<C-v>": false
+    },
+    "workbench.editor.enablePreview": false, // 禁用预览模式，防止文件被替换
+    "workbench.editor.enablePreviewFromQuickOpen": false, // 快速打开时也禁用预览
+    // vim 的 easymotion 插件的高亮字符的前景色
+    "vim.easymotionMarkerForegroundColorOneChar": "#DF5452",
+    // 代码区域的竖直和水平的高亮条显示
+    "editor.guides.bracketPairs": true,
+    "editor.guides.bracketPairsHorizontal": false,
+    "editor.bracketPairColorization.enabled": true,
+    // 渲染 white space
+    "editor.renderWhitespace": "all",
+    // 标签栏的 close 图标的可见性
+    "workbench.editor.tabActionCloseVisibility": true,
+    // 使单击就可以在新标签页中打开文件
+}
