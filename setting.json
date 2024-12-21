@@ -1,5 +1,16 @@
 {
+    // 标题栏的一些快捷图标
+    "workbench.layoutControl.enabled": false,
+    "workbench.startupEditor": "none",
+    "window.zoomLevel": 1,
+    // "workbench.colorTheme": "Everforest Dark",
+    // "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.iconTheme": "catppuccin-mocha",
     "editor.cursorSmoothCaretAnimation": "on",
+    "workbench.settings.editor": "json",
+    "zenMode.hideLineNumbers": false,
+    "security.workspace.trust.untrustedFiles": "open",
     "editor.cursorSurroundingLines": 5,
     "editor.fontFamily": "CaskaydiaCove Nerd Font",
     "editor.fontLigatures": true,
@@ -15,6 +26,19 @@
     "editor.suggest.insertMode": "replace",
     "editor.suggestFontSize": 14,
     "editor.wordWrap": "on",
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    // 光标的动画效果
+    "editor.cursorBlinking": "solid",
+    "editor.cursorStyle": "line",
+    // 自动检测缩进的宽度
+    "editor.detectItdentation": false,
+    // 只背景高亮当前行，但是不高亮行号
+    "editor.renderLineHighlight": "line",
+    // 高亮当前光标所在的单词以及同名的单词
+    "editor.occurrencesHighlight": "singleFile",
+    // 高亮选中内容
+    "editor.selectionHighlight": false,
     "errorLens.fontStyleItalic": true,
     "everforest.italicKeywords": true,
     "explorer.confirmDelete": false,
@@ -32,6 +56,7 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
     "update.showReleaseNotes": false,
     "vim.foldfix": true,
+    "vim.startInInsertMode": true,
     "vim.highlightedyank.color": "rgba(230, 97, 89, 0.7)",
     "vim.highlightedyank.enable": true,
     "vim.highlightedyank.textColor": "white",
@@ -176,29 +201,30 @@
         //         }
         //     ]
         // },
-        {
-            "before": [
-                "leader",
-                "c",
-            ],
-            "commands": [
-                {
-                    "command": "workbench.action.closeActiveEditor"
-                }
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "g",
-                "g"
-            ],
-            "commands": [
-                {
-                    "command": "workbench.action.quickOpen"
-                }
-            ]
-        },
+        // {
+        //     "before": [
+        //         "leader",
+        //         "c",
+        //     ],
+        //     "commands": [
+        //         {
+        //             "command": "workbench.action.closeActiveEditor"
+        //         }
+        //     ]
+        // },
+        //ctrl+p 
+        // {
+        //     "before": [
+        //         "leader",
+        //         "g",
+        //         "g"
+        //     ],
+        //     "commands": [
+        //         {
+        //             "command": "workbench.action.quickOpen"
+        //         }
+        //     ]
+        // },
         {
             "before": [
                 "leader",
@@ -211,6 +237,25 @@
                 }
             ]
         },
+        {
+            "before": [
+                "<C-v>"
+            ],
+            "commands": [
+                {
+                    "command": "extension.vim_cmd+v"
+                }
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "lineBreakInsert"
+            ],
+            "silent": true
+        }
     ],
     "vim.insertModeKeyBindingsNonRecursive": [
         {
@@ -223,43 +268,24 @@
             ]
         }
     ],
-    "window.zoomLevel": 1,
-    "workbench.colorTheme": "Everforest Dark",
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.settings.editor": "json",
-    "zenMode.hideLineNumbers": false,
-    "security.workspace.trust.untrustedFiles": "open",
     "vim.useSystemClipboard": true,
     // 开启 vim-surround
     "vim.surround": true,
-    "workbench.startupEditor": "none",
-    "git.enableSmartCommit": true,
-    "git.confirmSync": false,
-    // 光标的动画效果
-    "editor.cursorBlinking": "solid",
-    "editor.cursorStyle": "line",
-    // 自动检测缩进的宽度
-    "editor.detectItdentation": false,
-    // 标题栏的一些快捷图标
-    "workbench.layoutControl.enabled": false,
-    // 只背景高亮当前行，但是不高亮行号
-    "editor.renderLineHighlight": "line",
-    // 高亮当前光标所在的单词以及同名的单词
-    "editor.occurrencesHighlight": "singleFile",
-    // 高亮选中内容
-    "editor.selectionHighlight": false,
     // vim settings
     "vim.easymotion": true,
     "vim.incsearch": true,
     "vim.useCtrlKeys": true,
     //确保 Ctrl+C 的行为不被 Vim 模式干扰
+    //ctrl+w 是关闭tab标签页 ctrl+f是查找 ctrl+p 是文件查找
     "vim.handleKeys": {
         "<C-a>": false,
         "<C-f>": false,
         "<C-p>": false,
         "<C-w>": false,
         "<C-c>": false,
-        "<C-v>": false
+        "<C-v>": false,
+        "<C-z>": false,
+        "<C-s>": false
     },
     "workbench.editor.enablePreview": false, // 禁用预览模式，防止文件被替换
     "workbench.editor.enablePreviewFromQuickOpen": false, // 快速打开时也禁用预览
@@ -273,5 +299,4 @@
     "editor.renderWhitespace": "all",
     // 标签栏的 close 图标的可见性
     "workbench.editor.tabActionCloseVisibility": true,
-    // 使单击就可以在新标签页中打开文件
 }
