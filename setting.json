@@ -5,6 +5,7 @@
     "window.zoomLevel": 1,
     // "workbench.colorTheme": "Everforest Dark",
     // "workbench.iconTheme": "material-icon-theme",
+    // "everforest.italicKeywords": true,
     "workbench.colorTheme": "Catppuccin Mocha",
     "workbench.iconTheme": "catppuccin-mocha",
     "editor.cursorSmoothCaretAnimation": "on",
@@ -38,9 +39,16 @@
     // 高亮当前光标所在的单词以及同名的单词
     "editor.occurrencesHighlight": "singleFile",
     // 高亮选中内容
-    "editor.selectionHighlight": false,
-    "errorLens.fontStyleItalic": true,
-    "everforest.italicKeywords": true,
+    "editor.selectionHighlight": true,
+    // "editor.wordHighlight": true,
+    // "editor.wordHighlightStrong": true,
+    "workbench.colorCustomizations": {
+        "editor.selectionHighlightBackground": "#FFA72640", // 设置选中单词背景颜色
+        "editor.selectionHighlightBorder": "#FFA726", // 设置选中单词边框颜色
+        "editor.wordHighlightBackground": "#80D8FF40", // 相同词轻量高亮
+        "editor.wordHighlightStrongBackground": "#00ACC140" // 当前单词强高亮
+    },
+    // "errorLens.fontStyleItalic": true,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "extensions.autoUpdate": "onlyEnabledExtensions",
@@ -55,6 +63,7 @@
     "typescript.preferences.importModuleSpecifier": "relative",
     "typescript.updateImportsOnFileMove.enabled": "always",
     "update.showReleaseNotes": false,
+    // "vim.enableNeovim": true,
     "vim.foldfix": true,
     "vim.startInInsertMode": true,
     "vim.highlightedyank.color": "rgba(230, 97, 89, 0.7)",
@@ -285,7 +294,8 @@
         "<C-c>": false,
         "<C-v>": false,
         "<C-z>": false,
-        "<C-s>": false
+        "<C-s>": false,
+        "<C-x>": false
     },
     "workbench.editor.enablePreview": false, // 禁用预览模式，防止文件被替换
     "workbench.editor.enablePreviewFromQuickOpen": false, // 快速打开时也禁用预览
