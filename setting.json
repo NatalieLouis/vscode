@@ -3,9 +3,6 @@
   "todohighlight.isCaseSensitive": true,
   "editor.suggest.snippetsPreventQuickSuggestions": false,
   "extensions.ignoreRecommendations": true,
-  "vim.sneak": true,
-  // "clangd.path": "/usr/local/bin/clangd",
-  // 是否检查插件冲突
   "clangd.detectExtensionConflicts": true,
   // 查找的头文件路径，每一项前缀 -I
   "clangd.fallbackFlags": [],
@@ -82,11 +79,6 @@
   "workbench.layoutControl.enabled": false,
   "workbench.startupEditor": "none",
   "window.zoomLevel": 1,
-  // "workbench.colorTheme": "Everforest Dark",
-  // "workbench.iconTheme": "material-icon-theme",
-  // "everforest.italicKeywords": true,
-  // "workbench.colorTheme": "Catppuccin Mocha",
-  // "workbench.iconTheme": "catppuccin-mocha",
   "workbench.settings.editor": "json",
   "zenMode.hideLineNumbers": false,
   "security.workspace.trust.untrustedFiles": "open",
@@ -123,11 +115,18 @@
   // "editor.wordHighlight": true,
   // "editor.wordHighlightStrong": true,
   "workbench.colorCustomizations": {
-    "editor.selectionHighlightBackground": "#FFA72640", // 设置选中单词背景颜色
-    "editor.selectionHighlightBorder": "#FFA726", // 设置选中单词边框颜色
-    "editor.wordHighlightBackground": "#80D8FF40", // 相同词轻量高亮
-    "editor.wordHighlightStrongBackground": "#00ACC140" // 当前单词强高亮
+    "editor.selectionHighlightBorder": "#00000000",
+    "editor.wordHighlightBorder": "#00000000",
+    "editor.wordHighlightBackground": "#80D8FF40",
+    "editor.wordHighlightStrongBackground": "#80D8FF80",
+    "editor.selectionHighlightBackground": "#FFA72640",
+    "statusBar.background": "#8FBCBB",
+    "statusBar.noFolderBackground": "#8FBCBB",
+    "statusBar.debuggingBackground": "#8FBCBB",
+    "statusBar.foreground": "#434C5E",
+    "statusBar.debuggingForeground": "#434C5E"
   },
+
   // "errorLens.fontStyleItalic": true,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
@@ -154,7 +153,6 @@
       "before": ["<Leader>", "p"],
       "commands": ["workbench.action.showCommands"]
     },
-
     //Vim 命令，在新 tab 打开空白文件
     {
       "before": ["<Leader>", "t", "t"],
@@ -230,7 +228,7 @@
     },
     //关闭当前激活的编辑器标签页（即关闭当前正在查看的文件）ctrl+w
     {
-      "before": ["<leader>", "c"],
+      "before": ["<leader>", "a", "c"],
       "commands": ["workbench.action.closeActiveEditor"]
     },
     {
@@ -253,10 +251,18 @@
       "before": ["g", "d"],
       "commands": ["editor.action.revealDefinition"]
     },
+    {
+      "before": ["g", "p"],
+      "commands": ["editor.action.peekDefinition"]
+    },
     // 转到引用
     {
       "before": ["g", "r"],
       "commands": ["editor.action.goToReferences"]
+    },
+    {
+      "before": ["<leader>", "g", "r"],
+      "commands": ["editor.action.referenceSearch.trigger"]
     },
     // 转到实现
     {
@@ -273,12 +279,12 @@
       "before": ["<leader>", "f", "f"],
       "commands": ["workbench.action.quickOpen"]
     },
-    //打开侧边栏的全局搜索面板
+    //打开侧边栏的全局搜索面板ctrl+shift+f
     {
       "before": ["leader", "g", "f"],
       "commands": ["workbench.view.search"]
     },
-    // 全局搜索文字
+    // 本文件搜索文字
     {
       "before": ["<leader>", "f", "w"],
       "commands": ["workbench.action.findInFiles"]
@@ -343,6 +349,16 @@
       "before": ["<leader>", "z", "o"],
       "commands": ["editor.unfoldAll"]
     },
+    // 折叠一级区域
+    {
+      "before": ["<leader>", "z", "1"],
+      "commands": ["editor.foldLevel1"]
+    },
+    // 展开一级区域
+    {
+      "before": ["<leader>", "o", "2"],
+      "commands": ["editor.foldLevel2"]
+    },
     // gh 到行头
     {
       "before": ["g", "h"],
@@ -366,13 +382,16 @@
     }
   ],
   "vim.useSystemClipboard": true,
+  "vim.sneak": true, //s+chr+chr 比f/T 可以跨行
   // 开启 vim-surround
-  "vim.surround": true,
+  "vim.surround": true, //ds"
   "vim.smartRelativeLine": true,
   // vim settings
-  "vim.easymotion": true,
+  "vim.easymotion": true, //leader*2+s
+  // vim 的 easymotion 插件的高亮字符的前景色
+  "vim.easymotionMarkerForegroundColorOneChar": "#2e875f",
   "vim.incsearch": true,
-  "vim.useCtrlKeys": false,
+  "vim.useCtrlKeys": false, //vim 不是用ctrl 即保留ctlr原生命令
   "editor.cursorBlinking": "solid",
   "editor.cursorSmoothCaretAnimation": "on",
   //ctrl+w 是关闭tab标签页 ctrl+f是查找 ctrl+p 是文件查找
@@ -385,10 +404,21 @@
     "<C-s>": false,
     "<C-x>": false
   },
+  "vim.statusBarColorControl": true,
+  "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
+  "vim.statusBarColors.insert": "#BF616A",
+  "vim.statusBarColors.visual": "#B48EAD",
+  "vim.statusBarColors.visualline": "#B48EAD",
+  "vim.statusBarColors.visualblock": "#A3BE8C",
+  "vim.statusBarColors.replace": "#D08770",
+  "vim.statusBarColors.commandlineinprogress": "#007ACC",
+  "vim.statusBarColors.searchinprogressmode": "#007ACC",
+  "vim.statusBarColors.easymotionmode": "#007ACC",
+  "vim.statusBarColors.easymotioninputmode": "#007ACC",
+  "vim.statusBarColors.surroundinputmode": "#007ACC",
   "workbench.editor.enablePreview": false, // 禁用预览模式，防止文件被替换
   "workbench.editor.enablePreviewFromQuickOpen": false, // 快速打开时也禁用预览
-  // vim 的 easymotion 插件的高亮字符的前景色
-  "vim.easymotionMarkerForegroundColorOneChar": "#DF5452",
+
   // 代码区域的竖直和水平的高亮条显示
   "editor.guides.bracketPairs": true,
   "editor.guides.bracketPairsHorizontal": false,
