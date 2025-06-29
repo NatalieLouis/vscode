@@ -1,312 +1,425 @@
 {
-    // 标题栏的一些快捷图标
-    "workbench.layoutControl.enabled": false,
-    "workbench.startupEditor": "none",
-    "window.zoomLevel": 1,
-    // "workbench.colorTheme": "Everforest Dark",
-    // "workbench.iconTheme": "material-icon-theme",
-    // "everforest.italicKeywords": true,
-    "workbench.colorTheme": "Catppuccin Mocha",
-    "workbench.iconTheme": "catppuccin-mocha",
-    "editor.cursorSmoothCaretAnimation": "on",
-    "workbench.settings.editor": "json",
-    "zenMode.hideLineNumbers": false,
-    "security.workspace.trust.untrustedFiles": "open",
-    "editor.cursorSurroundingLines": 5,
-    "editor.fontFamily": "CaskaydiaCove Nerd Font",
-    "editor.fontLigatures": true,
-    "editor.fontSize": 18,
-    "editor.fontWeight": "300",
+  "todohighlight.isEnable": true,
+  "todohighlight.isCaseSensitive": true,
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "extensions.ignoreRecommendations": true,
+  "vim.sneak": true,
+  // "clangd.path": "/usr/local/bin/clangd",
+  // 是否检查插件冲突
+  "clangd.detectExtensionConflicts": true,
+  // 查找的头文件路径，每一项前缀 -I
+  "clangd.fallbackFlags": [],
+  "clangd.arguments": [
+    // 在后台自动分析文件（基于complie_commands)
+    "--background-index",
+    // 标记compelie_commands.json文件的目录位置
+    // "--compile-commands-dir=build",
+    // 同时开启的任务数量
+    "-j=12",
+    // 全局补全（会自动补充头文件）
+    "--all-scopes-completion",
+    // 更详细的补全内容
+    "--completion-style=detailed",
+    // Include what you use
+    "--header-insertion=iwyu",
+    // pch优化的位置 disk memory
+    "--pch-storage=memory",
+    "--cross-file-rename",
+    "--enable-config",
+    // clang-format style to apply by default when no .clang-format file is found
+    "--fallback-style=WebKit",
+    "--pretty",
+    "--clang-tidy",
+    "--query-driver=clang++,-std=c++20"
+  ],
+  "todohighlight.keywords": [
+    "DEBUG:",
+    "REVIEW:",
+    {
+      "text": "NOTE:",
+      "color": "#ff0000",
+      "backgroundColor": "yellow",
+      "overviewRulerColor": "grey"
+    },
+    {
+      "text": "HACK:",
+      "color": "#000",
+      "isWholeLine": false
+    },
+    {
+      "text": "TODO",
+      "color": "#746A69", // 深灰褐色
+      "border": "1px solid #A69F9D", // 柔和的浅灰
+      "borderRadius": "4px", // 圆角略微增加，看起来更精致
+      "backgroundColor": "rgba(186, 176, 172, 0.2)" // 浅卡其色，半透明背景
+    }
+  ],
+  "todohighlight.keywordsPattern": "TODO|FIXME:", //highlight `TODO:`,`FIXME:` or content between parentheses
+  "todohighlight.defaultStyle": {
+    "color": "#736000", // 深灰驼色，文字颜色
+    "backgroundColor": "#D8CF0F", // 浅米灰色，背景色
+    "overviewRulerColor": "#A09386", // 温暖的灰调，标尺颜色
+    "cursor": "pointer",
+    "border": "1px solid #A8A39E", // 灰驼色，边框
+    "borderRadius": "6px" // 稍大的圆角，显得更柔和
+  },
+  "todohighlight.include": ["**/*.lua", "**/*.c*", "**/*.h*", "**/*.py"],
+  "todohighlight.exclude": [
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.vscode/**",
+    "**/.github/**",
+    "**/_output/**",
+    "**/*.min.*",
+    "**/*.map",
+    "**/.next/**"
+  ],
+  "todohighlight.maxFilesForSearch": 5120,
+  "todohighlight.toggleURI": false,
+  // 标题栏的一些快捷图标
+  "workbench.layoutControl.enabled": false,
+  "workbench.startupEditor": "none",
+  "window.zoomLevel": 1,
+  // "workbench.colorTheme": "Everforest Dark",
+  // "workbench.iconTheme": "material-icon-theme",
+  // "everforest.italicKeywords": true,
+  // "workbench.colorTheme": "Catppuccin Mocha",
+  // "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.settings.editor": "json",
+  "zenMode.hideLineNumbers": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.cursorSurroundingLines": 5,
+  // "editor.fontFamily": "CaskaydiaCove Nerd Font",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 18,
+  "editor.fontWeight": "300",
+  "editor.formatOnSave": true,
+  "[cpp]": {
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+  },
+  "editor.inlineSuggest.enabled": false,
+  "editor.lineNumbers": "relative",
+  "editor.linkedEditing": true,
+  "editor.minimap.enabled": false,
+  "editor.smoothScrolling": true,
+  "editor.stickyScroll.enabled": true,
+  "editor.suggest.insertMode": "replace",
+  "editor.suggestFontSize": 14,
+  "editor.wordWrap": "on",
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  // 光标的动画效果
+  "editor.cursorStyle": "line",
+  // 自动检测缩进的宽度
+  "editor.detectItdentation": false,
+  // 只背景高亮当前行，但是不高亮行号
+  "editor.renderLineHighlight": "line",
+  // 高亮当前光标所在的单词以及同名的单词
+  "editor.occurrencesHighlight": "singleFile",
+  // 高亮选中内容
+  "editor.selectionHighlight": true,
+  // "editor.wordHighlight": true,
+  // "editor.wordHighlightStrong": true,
+  "workbench.colorCustomizations": {
+    "editor.selectionHighlightBackground": "#FFA72640", // 设置选中单词背景颜色
+    "editor.selectionHighlightBorder": "#FFA726", // 设置选中单词边框颜色
+    "editor.wordHighlightBackground": "#80D8FF40", // 相同词轻量高亮
+    "editor.wordHighlightStrongBackground": "#00ACC140" // 当前单词强高亮
+  },
+  // "errorLens.fontStyleItalic": true,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "extensions.autoUpdate": "onlyEnabledExtensions",
+  "files.exclude": {
+    "**/node_modules": true
+  },
+  "projectManager.git.baseFolders": ["$home/codetree/repo/"],
+  "projectManager.sortList": "Recent",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "update.showReleaseNotes": false,
+  // "vim.enableNeovim": true,
+  "vim.foldfix": true,
+  // "vim.startInInsertMode": true,
+  "vim.highlightedyank.color": "rgba(230, 97, 89, 0.7)",
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.textColor": "white",
+  "vim.hlsearch": true,
+  "vim.leader": "<space>",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    //打开命令面板
+    {
+      "before": ["<Leader>", "p"],
+      "commands": ["workbench.action.showCommands"]
+    },
+
+    //Vim 命令，在新 tab 打开空白文件
+    {
+      "before": ["<Leader>", "t", "t"],
+      "commands": [":tabnew"]
+    },
+    {
+      "before": ["<Leader>", "t", "n"],
+      "commands": [":tabnext"]
+    },
+    {
+      "before": ["<Leader>", "t", "p"],
+      "commands": [":tabprev"]
+    },
+    //关闭除当前标签页外的所有其它标签页（tabs）。
+    {
+      "before": ["<Leader>", "t", "o"],
+      "commands": [":tabo"]
+    },
+    {
+      "before": ["leader", "w"],
+      "commands": [":w!"]
+    },
+    {
+      "before": ["leader", "q"],
+      "commands": [":q!"]
+    },
+    {
+      "before": ["leader", "x"],
+      "commands": [":x!"]
+    },
+    //跳转到上一个 “问题/诊断信息” 位置（marker）
+    {
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.prev"]
+    },
+    {
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.next"]
+    },
+    //触发 VSCode 的“快速修复”操作（Quick Fix
+    {
+      "before": ["<leader>", "c", "a"],
+      "commands": ["editor.action.quickFix"]
+    },
+    //第三方插件切换布尔值（true/false）
+    {
+      "before": ["<leader>", "i"],
+      "commands": ["extension.toggleBool"]
+    },
+    // 格式化代码
+    {
+      "before": ["<leader>", "l", "f"],
+      "commands": ["editor.action.formatDocument"]
+    },
+    // 变量符号重命名
+    {
+      "before": ["<leader>", "l", "r"],
+      "commands": ["editor.action.rename"]
+    },
+    // 只有在当前文件是在左边的 explorer 中时才有效,在资源管理器中显示文件
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["revealInExplorer"]
+    },
+    {
+      "before": ["<leader>", "n", "h"],
+      "commands": [":noh"]
+    },
+    //关闭所有分屏中，当前激活文件对应的所有标签页ctrl+alt+w
+    {
+      "before": ["<leader>", "c"],
+      "commands": ["workbench.action.closeEditorInAllGroups"]
+    },
+    //关闭当前激活的编辑器标签页（即关闭当前正在查看的文件）ctrl+w
+    {
+      "before": ["<leader>", "c"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["lineBreakInsert"],
+      "silent": true
+    },
+    // 定义速览
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showHover"]
+    },
+    //打开当前文件的symbol列表=ctlr+shift+O
+    {
+      "before": ["<Leader>", "t"],
+      "commands": ["workbench.action.gotoSymbol"]
+    },
+    // 转到定义
+    {
+      "before": ["g", "d"],
+      "commands": ["editor.action.revealDefinition"]
+    },
+    // 转到引用
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToReferences"]
+    },
+    // 转到实现
+    {
+      "before": ["g", "i"],
+      "commands": ["editor.action.goToImplementation"]
+    },
+    // 回退到上一个位置
+    {
+      "before": ["g", "b"],
+      "commands": ["workbench.action.navigateBack"]
+    },
+    // 全局搜索文件名 ctrl+p
+    {
+      "before": ["<leader>", "f", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    //打开侧边栏的全局搜索面板
+    {
+      "before": ["leader", "g", "f"],
+      "commands": ["workbench.view.search"]
+    },
+    // 全局搜索文字
+    {
+      "before": ["<leader>", "f", "w"],
+      "commands": ["workbench.action.findInFiles"]
+    },
+    // 切换最左侧图标面板可见性
+    {
+      "before": ["<leader>", "s", "a"],
+      "commands": ["workbench.action.toggleActivityBarVisibility"]
+    },
+    // 打开文件浏览器
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.view.explorer"]
+    },
+    // 关闭当前标签页
+    {
+      "before": ["<leader>", "c"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    // 退出 vscode
+    {
+      "before": ["<leader>", "q"],
+      "commands": ["workbench.action.closeWindow"]
+    },
+    // 保存文件
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.files.save"]
+    },
+    // 组中上一个标签页
+    {
+      "before": ["H"],
+      "commands": ["workbench.action.previousEditorInGroup"]
+    },
+    // 组中下一个标签页
+    {
+      "before": ["L"],
+      "commands": ["workbench.action.nextEditorInGroup"]
+    },
+    // 关闭标签组
+    {
+      "before": ["<leader>", "g", "c"],
+      "commands": ["workbench.action.closeEditorsInGroup"]
+    },
+    // 移动到上一个标签组
+    {
+      "before": ["<leader>", "H"],
+      "commands": ["workbench.action.moveEditorToPreviousGroup"]
+    },
+    // 移动到下一个标签组
+    {
+      "before": ["<leader>", "L"],
+      "commands": ["workbench.action.moveEditorToNextGroup"]
+    },
+    // 全部折叠
+    {
+      "before": ["<leader>", "z", "c"],
+      "commands": ["editor.foldAll"]
+    },
+    // 全部展开
+    {
+      "before": ["<leader>", "z", "o"],
+      "commands": ["editor.unfoldAll"]
+    },
+    // gh 到行头
+    {
+      "before": ["g", "h"],
+      "commands": ["cursorHome"]
+    },
+    // gl 到行尾
+    {
+      "before": ["g", "l"],
+      "commands": ["cursorEnd"]
+    },
+    // ge 到文件尾
+    {
+      "before": ["g", "e"],
+      "commands": ["cursorBottom"]
+    }
+  ],
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.useSystemClipboard": true,
+  // 开启 vim-surround
+  "vim.surround": true,
+  "vim.smartRelativeLine": true,
+  // vim settings
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useCtrlKeys": false,
+  "editor.cursorBlinking": "solid",
+  "editor.cursorSmoothCaretAnimation": "on",
+  //ctrl+w 是关闭tab标签页 ctrl+f是查找 ctrl+p 是文件查找
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false,
+    "<C-c>": false,
+    "<C-v>": false,
+    "<C-z>": false,
+    "<C-s>": false,
+    "<C-x>": false
+  },
+  "workbench.editor.enablePreview": false, // 禁用预览模式，防止文件被替换
+  "workbench.editor.enablePreviewFromQuickOpen": false, // 快速打开时也禁用预览
+  // vim 的 easymotion 插件的高亮字符的前景色
+  "vim.easymotionMarkerForegroundColorOneChar": "#DF5452",
+  // 代码区域的竖直和水平的高亮条显示
+  "editor.guides.bracketPairs": true,
+  "editor.guides.bracketPairsHorizontal": false,
+  "editor.bracketPairColorization.enabled": true,
+  // 渲染 white space
+  "editor.renderWhitespace": "all",
+  // 标签栏的 close 图标的可见性
+  "workbench.editor.tabActionCloseVisibility": true,
+  "clangd.path": "/home/lily/.config/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/18.1.3/clangd_18.1.3/bin/clangd",
+  "Codegeex.Privacy": true,
+  "Codegeex.License": "",
+  "codegeex.codeLens.enableCodeLens": "hide_x",
+  "codegeex.codeLens.classQuickOptions": {
+    "addComment": false,
+    "ghostComment": false,
+    "fixBug": false,
+    "generateUnitTest": false,
+    "reviewCode": false,
+    "addDocStringForClass": false,
+    "addDocStringForMethods": false,
+    "explainCode": false
+  },
+  "workbench.editor.empty.hint": "hidden",
+  "editor.inlayHints.enabled": "off",
+  "workbench.colorTheme": "Catppuccin Mocha",
+  // "clangd.path": "/usr/local/bin/clangd",
+  "[json]": {
     "editor.formatOnSave": true,
-    "editor.inlineSuggest.enabled": true,
-    "editor.lineNumbers": "relative",
-    "editor.linkedEditing": true,
-    "editor.minimap.enabled": false,
-    "editor.smoothScrolling": true,
-    "editor.stickyScroll.enabled": true,
-    "editor.suggest.insertMode": "replace",
-    "editor.suggestFontSize": 14,
-    "editor.wordWrap": "on",
-    "git.enableSmartCommit": true,
-    "git.confirmSync": false,
-    // 光标的动画效果
-    "editor.cursorBlinking": "solid",
-    "editor.cursorStyle": "line",
-    // 自动检测缩进的宽度
-    "editor.detectItdentation": false,
-    // 只背景高亮当前行，但是不高亮行号
-    "editor.renderLineHighlight": "line",
-    // 高亮当前光标所在的单词以及同名的单词
-    "editor.occurrencesHighlight": "singleFile",
-    // 高亮选中内容
-    "editor.selectionHighlight": true,
-    // "editor.wordHighlight": true,
-    // "editor.wordHighlightStrong": true,
-    "workbench.colorCustomizations": {
-        "editor.selectionHighlightBackground": "#FFA72640", // 设置选中单词背景颜色
-        "editor.selectionHighlightBorder": "#FFA726", // 设置选中单词边框颜色
-        "editor.wordHighlightBackground": "#80D8FF40", // 相同词轻量高亮
-        "editor.wordHighlightStrongBackground": "#00ACC140" // 当前单词强高亮
-    },
-    // "errorLens.fontStyleItalic": true,
-    "explorer.confirmDelete": false,
-    "explorer.confirmDragAndDrop": false,
-    "extensions.autoUpdate": "onlyEnabledExtensions",
-    "extensions.ignoreRecommendations": false,
-    "files.exclude": {
-        "**/node_modules": true
-    },
-    "projectManager.git.baseFolders": [
-        "$home/codetree/repo/"
-    ],
-    "projectManager.sortList": "Recent",
-    "typescript.preferences.importModuleSpecifier": "relative",
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "update.showReleaseNotes": false,
-    // "vim.enableNeovim": true,
-    "vim.foldfix": true,
-    "vim.startInInsertMode": true,
-    "vim.highlightedyank.color": "rgba(230, 97, 89, 0.7)",
-    "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.textColor": "white",
-    "vim.hlsearch": true,
-    "vim.leader": "<space>",
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "leader",
-                "r"
-            ],
-            "commands": [
-                "editor.action.rename"
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "w"
-            ],
-            "commands": [
-                ":w!"
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "q"
-            ],
-            "commands": [
-                ":q!"
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "x"
-            ],
-            "commands": [
-                ":x!"
-            ]
-        },
-        {
-            "after": [
-                "g",
-                "g",
-                "V",
-                "G"
-            ],
-            "before": [
-                "<c-a>"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "k"
-            ],
-            "commands": [
-                "editor.action.showHover"
-            ]
-        },
-        {
-            "before": [
-                "[",
-                "d"
-            ],
-            "commands": [
-                "editor.action.marker.prev"
-            ]
-        },
-        {
-            "before": [
-                "]",
-                "d"
-            ],
-            "commands": [
-                "editor.action.marker.next"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "c",
-                "a"
-            ],
-            "commands": [
-                "editor.action.quickFix"
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "i"
-            ],
-            "commands": [
-                "extension.toggleBool"
-            ]
-        },
-        // 格式化代码
-        {
-            "before": [
-                "leader",
-                "f",
-                "t"
-            ],
-            "commands": [
-                {
-                    "command": "editor.action.formatDocument"
-                }
-            ]
-        },
-        // 只有在当前文件是在左边的 explorer 中时才有效
-        {
-            "before": [
-                "leader",
-                "f"
-            ],
-            "commands": [
-                {
-                    "command": "revealInExplorer"
-                }
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "h"
-            ],
-            "commands": [
-                ":noh"
-            ]
-        },
-        // {
-        //     "before": [
-        //         "leader",
-        //         "c"
-        //     ],
-        //     "commands": [
-        //         {
-        //             "command": "workbench.action.closeEditorInAllGroups"
-        //         }
-        //     ]
-        // },
-        // {
-        //     "before": [
-        //         "leader",
-        //         "c",
-        //     ],
-        //     "commands": [
-        //         {
-        //             "command": "workbench.action.closeActiveEditor"
-        //         }
-        //     ]
-        // },
-        //ctrl+p 
-        // {
-        //     "before": [
-        //         "leader",
-        //         "g",
-        //         "g"
-        //     ],
-        //     "commands": [
-        //         {
-        //             "command": "workbench.action.quickOpen"
-        //         }
-        //     ]
-        // },
-        {
-            "before": [
-                "leader",
-                "g",
-                "f"
-            ],
-            "commands": [
-                {
-                    "command": "workbench.view.search"
-                }
-            ]
-        },
-        {
-            "before": [
-                "<C-v>"
-            ],
-            "commands": [
-                {
-                    "command": "extension.vim_cmd+v"
-                }
-            ]
-        },
-        {
-            "before": [
-                "K"
-            ],
-            "commands": [
-                "lineBreakInsert"
-            ],
-            "silent": true
-        }
-    ],
-    "vim.insertModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "j",
-                "j"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        }
-    ],
-    "vim.useSystemClipboard": true,
-    // 开启 vim-surround
-    "vim.surround": true,
-    // vim settings
-    "vim.easymotion": true,
-    "vim.incsearch": true,
-    "vim.useCtrlKeys": true,
-    //确保 Ctrl+C 的行为不被 Vim 模式干扰
-    //ctrl+w 是关闭tab标签页 ctrl+f是查找 ctrl+p 是文件查找
-    "vim.handleKeys": {
-        "<C-a>": false,
-        "<C-f>": false,
-        "<C-p>": false,
-        "<C-w>": false,
-        "<C-c>": false,
-        "<C-v>": false,
-        "<C-z>": false,
-        "<C-s>": false,
-        "<C-x>": false
-    },
-    "workbench.editor.enablePreview": false, // 禁用预览模式，防止文件被替换
-    "workbench.editor.enablePreviewFromQuickOpen": false, // 快速打开时也禁用预览
-    // vim 的 easymotion 插件的高亮字符的前景色
-    "vim.easymotionMarkerForegroundColorOneChar": "#DF5452",
-    // 代码区域的竖直和水平的高亮条显示
-    "editor.guides.bracketPairs": true,
-    "editor.guides.bracketPairsHorizontal": false,
-    "editor.bracketPairColorization.enabled": true,
-    // 渲染 white space
-    "editor.renderWhitespace": "all",
-    // 标签栏的 close 图标的可见性
-    "workbench.editor.tabActionCloseVisibility": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
